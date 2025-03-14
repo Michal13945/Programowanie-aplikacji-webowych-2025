@@ -1,4 +1,4 @@
-import { ProjectService } from "../services/ProjectService";
+import { ProjectService } from "../API/ProjectService";
 
 interface DeleteProjectProps {
   id: string;

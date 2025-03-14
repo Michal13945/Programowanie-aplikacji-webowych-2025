@@ -1,6 +1,8 @@
 import { Project } from "../types/Project";
+import { Story } from "../types/Story";
 
 const STORAGE_KEY = "projects";
+const STORAGE_KEY_2 = "stories";
 
 export class ProjectService {
   static getAll(): Project[] {
@@ -28,5 +30,26 @@ export class ProjectService {
   static delete(id: string): void {
     let projects = this.getAll().filter((project) => project.id !== id);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(projects));
+  }
+
+  static setActive(id: string): void {
+    localStorage.setItem("ActiveProject", id);
+  }
+
+  static getActive(): string | null {
+    const activeId = localStorage.getItem("ActiveProject");
+    console.log(activeId);
+    return activeId;
+  }
+
+  static getAllStories(): Story[] {
+    const data = localStorage.getItem(STORAGE_KEY_2);
+    return data ? JSON.parse(data) : [];
+  }
+
+  static addStories(story: Story): void {
+    const stories = this.getAllStories();
+    stories.push(story);
+    localStorage.setItem(STORAGE_KEY_2, JSON.stringify(stories));
   }
 }
