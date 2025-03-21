@@ -38,7 +38,6 @@ export class ProjectService {
 
   static getActive(): string | null {
     const activeId = localStorage.getItem("ActiveProject");
-    console.log(activeId);
     return activeId;
   }
 

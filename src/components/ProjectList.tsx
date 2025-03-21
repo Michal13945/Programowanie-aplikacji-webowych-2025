@@ -4,7 +4,6 @@ import { ProjectService } from "../API/ProjectService";
 import AddProject from "./AddProject";
 import DeleteProject from "./DeleteProject";
 import { useNavigate } from "react-router";
-import Header from "./Header";
 
 const ProjectList = () => {
   const [projects, setProjects] = useState<Project[]>([]);
